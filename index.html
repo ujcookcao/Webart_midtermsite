@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="./index.js"></script>
+
+    <title>浮动滑动效果</title>
+</head>
+
+<body>
+    <audio src="cybermusic.wav" id="cybermusic" loop></audio>
+    <audio src="./music/空中散步.mp3" id="空中散步" loop></audio>
+    <audio src="./music/破旧世界.mp3" id="破旧世界" loop></audio>
+    <audio src="./music/deadwrong.mp3" id="deadwrong" loop></audio>
+    <audio src="./music/Resonance.mp3" id="Resonance" loop></audio>
+    <!-- 整个主页面的容器 -->
+    <div class="container">
+        <!-- 页面三张背景图分区的section -->
+        <section class="img" id="img_one">
+            <!-- <img src="./星晴素材1.png" id="star" style="position: absolute; top: 0%; right: 0% ;" /> -->
+
+            <!-- 大标题 -->
+            <div class="title-container">
+                <h1 id = "titile_1">SUMMER</h1>
+            </div>
+            <div id = "moon_poemcontainer"class ="text-box">
+                <p id = "moon_poem">The sounds
+                    Of the Harlem night
+                    Drop one by one into stillness.
+                    The last player-piano is closed. 
+                    The last victrola ceases with the
+                    “Jazz Boy Blues.”
+                    The last crying baby sleeps
+                    And the night becomes
+                    Still as a whispering heartbeat.
+                    I toss
+                    Without rest in the darkness,
+                    Weary as the tired night,
+                    My soul
+                    Empty as the silence,
+                    Empty with a vague,
+                    Aching emptiness,
+                    Desiring,
+                    Needing someone,
+                    Something.
+                    
+                    I toss without rest
+                    In the darkness
+                    Until the new dawn,
+                    Wan and pale,
+                    Descends like a white mist
+                    Into the court-yard.</p>
+            </div>
+            <div class="title_container_translate">
+                <p id = "summer_eng">Great is the sun</p>
+                <p id = "summer_zn">晴空万里</p>
+            </div>
+            <div class="sun_container">
+                <img id = "太阳svg"src="./太阳.svg">
+            </div>
+ 
+
+            <div id="startplaymusic">
+            </div>
+                <div class="circle" id = "textbutton">
+                    <svg viewBox="0 0 100 100">
+                        <path d="M 50 50 m -50 0 a 50 50 0 1 1 100 0 a 50 50 0 1 1 -100 0 z" id="circle" />
+                        <text>
+                            <textPath xlink:href="#circle">start the trip start the trip start the trip start the trip start the trip start the trip start the trip start the trip start the trip </textPath>
+                        </text>
+                    </svg>
+                </div>
+        </section>
+        <section class="content-one">
+            
+            <div class="yellowstar_container">
+                <img src="./流星.png">
+            </div>
+
+            <div class="star-container">
+                <img src="./星晴素材1.png" id="star"/>
+                <div class="placeholder" style="width: 100%; height: 300px;"></div>
+            </div>
+            <button class="button2" id="musicbutton">Start the trip</button>
+            <div class="text-box">
+                <div class="cnt">
+                    <h2 class="cell animatable">Water in Heart </h2>
+                    <p class="cell animatable">
+                        小溪流向大海，大海却不回头看小溪。
+                        大海飞向云朵，云朵却不回头看大海。
+                    </p>
+                    <p>
+                        <button id = "button_page_one" class = "button2">fly</button>
+                        <a href="#" class="btn">TAKE <strong>CARE OF</strong><em>YOURSEFL</em></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="content-two">
+            <div class="text-box">
+                <div class="cnt">
+                    <h2>LIVING</h2>
+                    <p>
+                        "If a cyber brain could generate its own ghost and create a soul of its own, what then is the
+                        significance of being human?"
+                    </p>
+                    <p>
+                        <a href="#" class="btn">TAKE <strong>CARE OF</strong><em>YOURSEFL</em></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="content-three">
+            <div class="text-box">
+                <div class="cnt">
+                    <h2>NEW BIRTH</h2>
+                    <p>
+                        "If a cyber brain could generate its own ghost and create a soul of its own, what then is the
+                        significance of being human?"
+                    </p>
+                    <p>
+                        <a href="#" class="btn">TAKE <strong>CARE OF</strong><em>YOURSEFL</em></a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="img_two" class="img">
+            <h1>The ENDING</h1>
+        </section>
+
+    </div>
+
+</body>

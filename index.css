@@ -1,0 +1,572 @@
+@font-face {
+    font-family: "Modern\ No.\ 20.ttf";
+    /* src:url("./font/ark-pixel-10px-monospaced-ja.ttf"); */
+    src: url("./font/Modern\ No.\ 20.ttf")
+}
+
+@font-face {
+    font-family: "AozoraMincho-bold";
+    src: url("./font/AozoraMincho-bold.ttf");
+}
+
+@font-face {
+    font-family: "AozoraMincho-thin";
+    src: url("./font/AozoraMincho-thin.ttf");
+}
+
+@font-face {
+    font-family: "AozoraMincho-regular";
+    src: url("./font/AozoraMinchoRegular.ttf");
+}
+
+@font-face {
+    font-family: "AozoraMincho-light";
+    src: url("./font/AozoraMinchoLight.ttf");
+}
+@font-face {
+    font-family: "ex-hira1";
+    src: url("./font/ex-hira1.ttf");
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+@keyframes colorChange {
+    0% {
+       color:#ff5733e6
+
+    }
+
+
+
+    50% {
+        color: rgb(253, 76, 0)
+    }
+
+
+    100% {
+        color: #ff5733
+    }
+}
+
+.container {
+    width: 1728px;
+    height: auto
+}
+
+section,
+#footer {
+    height: 100vh;
+    position: relative;
+    color: rgb(13, 166, 248);
+    font-size: 10vh;
+    font-family: 'AozoraMincho-light', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: colorChange_blue_white 5s infinite;
+}
+
+.img {
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    user-select: none
+}
+@keyframes showup{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+
+}
+
+.show_up{
+    animation: showup 2s forwards;
+}
+
+#moon_poem{
+    font-size: 30px;
+    
+    color: #FEF2BC;
+}
+#moon_poemcontainer{
+    width: 55.6%;
+    opacity: 0;
+    left: 0%;
+}
+.title-container {
+    position: absolute;
+    top: 30%;
+    left: 28%;
+    /* 根据需要调整 */
+    transform: translate(-50%, -50%); /* 同时向左和向上平移自身尺寸的50% */
+
+}
+@keyframes colorChange_blue_white {
+    0% {
+        color: rgb(255, 255, 255,0.8),;
+    }
+
+    50% {
+        color: rgb(21, 157, 254, 0.8);
+    }
+
+    100% {
+        color: rgb(255, 255, 255,0.8),;
+    }
+}
+.title_container_translate {
+    font-size: 4vh;
+    color: rgb(255, 255, 255);
+    text-shadow: none;
+    position: absolute;
+    right: 15%;
+    /* 或者指定具体的边距如20px */
+    top: 30%;
+    /* 根据需要调整 */
+    transform: translateY(-50%);
+    /* 垂直居中 */
+    font-family: "AozoraMincho-light";
+    text-align: center;
+    /* 其他样式 */
+    animation: colorChange_blue_white 5s infinite;
+    overflow: hidden; /* 确保图片不会超出容器 */
+}
+.title_container_translate:hover {
+    animation: none;
+    color: rgb(255, 87, 51)
+}
+/* 旋转效果 */
+@keyframes rotatesun {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(22.5deg);
+    }
+
+
+    100% {
+        transform: rotate(45deg);
+    }
+
+}
+@keyframes sunrise {
+    from {
+      opacity: 0;
+      transform: translateY(100%); /* 从下方开始 */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* 升起到原位 */
+    }
+  }
+  
+  .sun_container {
+    position: absolute;
+    top: 17%;
+    left: 85%;
+    opacity: 0; /* 初始化时透明 */
+    /* 移除初始的 transform 设置 */
+    transition: opacity 2s ease-in-out; /* 平滑变化透明度 */
+    animation: none; /* 初始时不应用动画 */
+  }
+  .yellowstar_container {
+    position: absolute;
+    top: 17%;
+    left: 85%;
+    opacity: 1; /* 初始化时透明 */
+    /* 移除初始的 transform 设置 */
+    transition: opacity 2s ease-in-out; /* 平滑变化透明度 */
+    animation: none; /* 初始时不应用动画 */
+  }
+#img_one {
+    background-image: url("蓝天.jpg");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: right 0px;
+    /* 让图片在容器中居中显示 */
+    background-color: rgb(255, 255, 255);
+    /* 填充的颜色 */
+
+}
+
+#img_one h1 {
+
+    text-align: left;
+    font-family: "AozoraMincho-bold";
+    
+    animation: colorChange 8s infinite;
+}
+
+#img_two {
+    background-image: url("大海2.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    /* 让图片在容器中居中显示 */
+    background-color: rgb(255, 255, 255);
+
+}
+
+.content-one {
+    background: url("大海.jpg") fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    /* 让图片在容器中居中显示 */
+    background-color: rgb(20, 0, 0);
+    overflow: hidden;
+}
+
+.content-two {
+    background: url("樱花.jpg") fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    /* 让图片在容器中居中显示 */
+    background-color: rgb(255, 255, 255);
+}
+
+.content-three {
+    background: url("黄色树叶.jpg") fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    /* 让图片在容器中居中显示 */
+    background-color: rgb(255, 255, 255);
+}
+
+.text-box {
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    bottom: 25%;
+    text-align: center;
+    transform-origin: center;
+    /* transform: skew(0, -10deg); */
+
+
+}
+
+.cnt h2 {
+    margin-top: 100px;
+    font-size: 36px;
+    font-family: 'Modern\ No.\ 20.ttf', serif;
+    text-shadow: 1px 0px 0px #000;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 5px;
+
+}
+
+.cnt p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.cnt a.btn {
+    font-size: 90%;
+    font-family: 'AozoraMincho-bold', serif;
+    letter-spacing: normal;
+    text-shadow: 1px 0px 0px #000;
+    line-height: 2.8;
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    border: 3px solid #000;
+    white-space: normal;
+    text-decoration: none;
+    padding: 5px 20px;
+
+}
+
+.text-box .cnt {
+    display: inline-block;
+    text-align: right;
+    margin: 40px 0 10px;
+    width: 90%;
+    transform-origin: right bottom;
+    /* transform: skew(0, 10deg); */
+}
+
+#mouse {
+    position: relative;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+}
+
+
+#main-title:hover {
+    transform: rotate(10deg);
+
+}
+
+/* 旋转效果 */
+@keyframes rotateBox {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    33% {
+        transform: rotate(10deg);
+    }
+
+    66% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+
+}
+
+.rotated {
+    animation: rotateBox 10s infinite ease-in;
+}
+
+.zoomIn_15 {
+    animation: zoomIn_15 0.5s forwards ease-in;
+}
+
+/* 放大效果 */
+@keyframes zoomIn_3 {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(3);
+    }
+
+    /* 放大到120%原大小 */
+}
+
+@keyframes zoomIn_15 {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.5);
+    }
+
+    /* 放大到120%原大小 */
+}
+
+@keyframes zoomIn_11 {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+
+    /* 放大到120%原大小 */
+
+}
+
+/* 闪烁效果 */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.btn {
+    transition: transform 0.5s ease;
+    /* 平滑的变换效果 */
+}
+
+.btn:hover {
+    animation: zoomIn_3 0.5s forwards, blink 2s infinite;
+    /* 同时应用放大和闪烁效果 */
+}
+
+#musicbutton {
+    transform-origin: center;
+    transition: transform 0.5s ease;
+    /* 平滑的变换效果 */
+}
+
+#musicbutton:hover {
+    transform-origin: center;
+    animation: zoomIn_15 0.5s forwards;
+    /* 同时应用放大和闪烁效果 */
+}
+
+/* 字体浮动 */
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    33% {
+        transform: translate(200px, 0);
+    }
+
+    66% {
+        transform: translate(-200px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.button1 {
+    font-family: monospace;
+    background-color: #f3f7fe;
+    color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    width: 100px;
+    height: 45px;
+    transition: .3s;
+}
+
+.button1:hover {
+    background-color: rgb(59, 130, 246);
+    box-shadow: 0 0 0 5px #3b83f65f;
+    color: #fff;
+}
+
+.button2 {
+  font-size: 30px;
+  color: rgb(59, 130, 246);
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.button2:focus,
+.button2:hover {
+  color: #0d61e9;
+}
+
+.button2:focus:after,
+.button2:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.button2:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #3b82f6;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+
+@keyframes rotate_circle {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .circle text{
+    font-family:"Roman", "AozoraMincho-bold", serif;
+    font-size: 15px;
+    fill: #000000;
+    text-anchor: middle;
+  }
+  .circle:hover{
+    animation: zoomIn_11 1s forwards;
+  }
+  .circle {
+    background-image: url("箭头黑.svg");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 75%;
+    left: 23%;
+    font-family: "AozoraMincho-bold", serif;
+    font-size: 15px;
+    width: 11em;
+    height: 11em;
+    text-shadow: none;
+    letter-spacing: -1px; /* 调小字间距 */
+    /* 移除transform: rotate(-2turn);，因为我们将使用动画来实现旋转 */
+  }
+  
+.circle path {
+    fill: none;
+  }
+  .circle svg {
+
+    display: block;
+    overflow: visible;
+    animation: rotate_circle 15s infinite linear; /* 应用旋转动画 */
+  }
+
+  /* 滑动特效 */
+
+  @keyframes slideIn {
+    from {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 2s forwards;
+    opacity: 0;
+}
+
+.star-container {
+    width: 80; /* 设置容器宽度为视口宽度的70% */
+    opacity: 0.6;
+    overflow: hidden; /* 隐藏超出部分 */
+    position: absolute; /* 确保定位工作 */
+    left: -30vw; /* 将容器向右移动，确保图片的右侧部分在屏幕的70%宽度之后隐藏 */
+}
+
+.star-container img {
+    width: 100%; /* 图片填充容器 */
+    height: auto; /* 可选：确保图片填充整个容器 */
+    position: relative; /* 让图片相对于其父容器定位 */
+}
