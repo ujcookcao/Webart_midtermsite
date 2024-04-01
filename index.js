@@ -1,67 +1,38 @@
+let currentPlaying = null;
+let currentshouldplay = 1;
 document.addEventListener('DOMContentLoaded', function () {
     //section_one摇摆效果
     // 获取所有需要动画效果的section
-    const section_one = document.querySelector('.content-one');
+    const section_two = document.querySelector('.content-two');
     const button_page_one = document.getElementById("button_page_one");
+    const 波妞 = document.querySelectorAll(".img-box");
     button_page_one.addEventListener('click', () => {
         // 当鼠标移入时，添加旋转动画类
-        section_one.classList.add('rotated');
+        section_two.classList.add('rotated');
 
         // 获取并操作文字元素，让其“漂浮”
         // 这里是一个示例，你可以根据需要调整
-        const textBox = section_one.querySelector('.text-box');
+        const textBox = section_two.querySelector('.text-box');
         if (textBox) {
             textBox.style.position = 'absolute';
             textBox.style.animation = 'float 10s infinite';
         }
+        if (波妞) {
+            for (let i = 0; i < 波妞.length; i++) {
+                波妞[i].style.position = 'absolute';
+                波妞[i].style.opacity = 0.8;
+                波妞[i].style.animation = 'float 10s infinite';
+            }
+        }
+        
     });
 
 
     // 按钮点击启用scroll检测播放音乐
-    const musicButton = document.getElementById('musicbutton');
-    console.log(musicButton);
-    musicButton.addEventListener('click', () => {
-        let currentPlaying = null;
-        // 播放音乐
-        const song1 = document.getElementById('Resonance');
-        currentPlaying = 0;
-        fadeIn(song1);
-        document.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('.container > section');
-
-            //console.log(sections);
-            const audios = [document.getElementById('Resonance'), document.getElementById('deadwrong'), document.getElementById('破旧世界'), document.getElementById('空中散步')];
-
-            let closestSection = null;
-            let minDistance = Infinity;
-
-            sections.forEach((section, index) => {
-                const distance = Math.abs(section.getBoundingClientRect().top);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestSection = index;
-                }
-            });
-
-            // 停止所有音乐并重置时间
-            if (closestSection !== currentPlaying) {
-                if (currentPlaying !== null) {
-                    fadeOut(audios[currentPlaying]);
-                    audios[currentPlaying].currentTime = 0;
-                }
-
-                if (closestSection !== null) {
-                    fadeIn(audios[closestSection]);
-                    currentPlaying = closestSection;
-                }
-            }
-
-
-        });
-    });
+    
     const textButton = document.getElementById('textbutton');
     textButton.addEventListener('click', () => {
-        let currentPlaying = null;
+        
         // 播放音乐
         const song1 = document.getElementById('Resonance');
         currentPlaying = 0;
@@ -70,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('.container > section');
 
             //console.log(sections);
-            const audios = [document.getElementById('Resonance'), document.getElementById('deadwrong'), document.getElementById('破旧世界'), document.getElementById('空中散步')];
+            const audios = [document.getElementById('Resonance'), document.getElementById('deadwrong'), document.getElementById('空中散步'),document.getElementById('破旧世界')];
 
             let closestSection = null;
             let minDistance = Infinity;
@@ -85,14 +56,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // 停止所有音乐并重置时间
             if (closestSection !== currentPlaying) {
-                if (currentPlaying !== null) {
+                if (currentPlaying !== null || currentshouldplay == 0) {
                     fadeOut(audios[currentPlaying]);
                     audios[currentPlaying].currentTime = 0;
                 }
 
                 if (closestSection !== null) {
+                    if(currentshouldplay == 1){
                     fadeIn(audios[closestSection]);
                     currentPlaying = closestSection;
+                    }
                 }
             }
 
@@ -120,10 +93,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function fadeIn(audio) {
         audio.volume = 0;
         audio.play();
+        var volumeindex = audio.volume;
 
         function step() {
             if (audio.volume < 1) {
-                audio.volume += 0.002;
+                volumeindex = audio.volume + 0.002;
+                if (volumeindex > 1) {
+                    volumeindex = 1;
+                }
+                audio.volume = volumeindex;
                 requestAnimationFrame(step);
             }
         }
@@ -187,7 +165,7 @@ title.addEventListener('mouseover', () => {
 title.addEventListener('mouseout', () => {
     clearInterval(intervalId); // 停止计时器
     intervalId = null; // 重置计时器ID
-    titleText.innerText = "SUNSHINE"; // 鼠标移出时重置文本
+    titleText.innerText = "sunshine"; // 鼠标移出时重置文本
     if(numberIndex > 30){
         const sunContainer = document.querySelector('.sun_container');
         sunContainer.style.opacity = 1; // 使太阳可见
@@ -210,11 +188,66 @@ title.addEventListener('click', () => {
     document.getElementById('太阳svg').src = './流星.png';
     suncontainer.style.opacity = 1; // 使太阳可见
     suncontainer.style.animation = 'sunrise 3s ease forwards'; //
-    title.style.opacity = 0; // 隐藏标题    
+    title.style.display = 'none';  
     蓝天图片.style.backgroundColor = "#025168";
-    document.getElementById("summer_eng").innerHTML = "In the miraculous dark";
+    document.getElementById("summer_eng").innerHTML = "the miraculous dark";
     document.getElementById("summer_zn").innerHTML = "在奇迹般的黑暗中";
     moon_poemcontainer.classList.add('show_up');
+    
 
     });
+
+
+//播放哈尔的视频
+function pauseAllMusic() {
+    const audios = [document.getElementById('Resonance'), document.getElementById('空中散步'), document.getElementById('deadwrong'), document.getElementById('破旧世界')];
+    audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0; // 可选，如果你想在暂停时重置音频
+    });
+}
+
+const playButton = document.getElementById('musicbutton');
+const video = document.getElementById('content-one-background-video');
+const background_img = document.querySelector('.content-one');
+const content_two_h1 = document.getElementById('content-two-h1');
+const content_two_p = document.getElementById('content-two-p');
+const textBox = section_two.querySelector('.text-box');
+const imgBox = section_two.querySelectorAll('.img-box');
+
+
+
+playButton.addEventListener('click', function() {
+    document.getElementById('musicbutton').style.display = 'none';
+    content_two_h1.innerText = "Now it's my turn to save you, Howl!";
+    content_two_p.innerHTML = "现在轮到我来拯救你了，哈尔!";
+    background_img.style.background = "none";
+    textBox.style.animation = 'none'; // 移除动画
+    for (let i = 0; i < imgBox.length; i++) {
+        imgBox[i].style.animation = 'none'; // 移除动画
+    }
+    // 显示视频
+    video.style.display = 'block';
+    
+    // 开始播放视频
+    video.play();
+    const audios = [document.getElementById('Resonance'), document.getElementById('空中散步'), document.getElementById('deadwrong'), document.getElementById('破旧世界')];
+    pauseAllMusic();
+    currentshouldplay = 0;
+    
+    // 当视频播放结束时，再次隐藏视频
+    video.onended = function() {
+        video.style.display = 'none';
+        background_img.style.background = 'url(./哈尔1.jpeg) no-repeat center center/cover';
+        fadeIn(audios[currentPlaying]);
+        currentshouldplay = 1;
+        content_two_h1.innerText = "Now it's my turn to save you, Howl!";
+        content_two_p.innerHTML = "现在轮到我来拯救你了，哈尔!";
+    };
 });
+
+
+
+
+});
+
